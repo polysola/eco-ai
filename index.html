@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script type="module" src="js/model-viewer.min.js"></script>
+    <script nomodule src="js/model-viewer-legacy.js"></script>
+    <link rel="shortcut icon" href="images/Logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Ai</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #terminal {
+            width: 80%;
+            max-width: 800px;
+            background: black;
+            padding: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background-color: rgb(0, 255, 60);
+            animation: blink 0.4s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .prompt {
+            color: #00ff00;
+        }
+
+        .highlight {
+            color: #ffcc00;
+        }
+
+        .log {
+            height: 100px;
+            width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .jiji {
+            height: auto;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: baseline;
+            flex-direction: row;
+            right: 0;
+            margin-bottom: -2rem;
+
+        }
+
+        .dede {
+            height: 200px;
+            width: auto;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .jiji a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .logx {
+            height: 100px;
+            width: auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 40px;
+        }
+
+        .gygy {
+            height: 100px;
+            width: auto;
+            position: absolute;
+            top: 0;
+            margin: 40px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .log {
+                height: 50px;
+            }
+
+            .gygy {
+                display: none;
+            }
+
+            .logx {
+                height: 80px;
+                width: auto;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0px;
+            }
+
+            .jiji {
+                height: 100px;
+                width: 80%;
+                text-align: center;
+                position: absolute;
+                bottom: 0;
+
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            .jiji a {
+                font-size: 18px;
+                line-height: 18px;
+            }
+
+            .dede {
+                height: 200px;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+            }
+
+            #terminal {
+                width: 100%;
+                max-width: 800px;
+                overflow-y: scroll;
+                max-height: 67vh;
+                background: black;
+                padding: 20px;
+                margin: 10% 0;
+                border: 1px solid #333;
+                box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            }
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: rgb(0, 0, 0);
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            background: #2bff00;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="dede">
+        <model-viewer style="height: 100px; width:100px; margin: 10px; background-color: rgba(0, 0, 0, 0) !important;"
+            auto-rotate camera-controls ar src="./ecoai.glb">
+
+        </model-viewer>
+
+    </div>
+
+
+
+    <div class="logx">
+        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://t.me/ecoai_sol"> <img
+                style="height:50px; text-decoration:none; width: auto;" src="images/Telegram.png" alt> </a>
+        <a target="_blank" style="height:50px; text-decoration:none; width: auto;"
+            href="https://www.dextools.io/app/en/solana/pair-explorer/8hPRMTFuUAKN4Rx4TUmJp3LTQZY5QYfzikbhb7kaD4AN?t=1736265584720">
+            <img style="height:50px; text-decoration:none; width: auto;" src="images/dex.png" alt> </a>
+        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://x.com/ecoai_solana">
+            <img style="height:50px; text-decoration:none; width: auto;" src="images/x.png" alt> </a>
+        <a target="_blank" style="height:50px; text-decoration:none; width: auto;"
+            href="https://youtube.com/@ecoai-sol?si=b4VRLqXX7YqZ3uPB"> <img
+                style="height:50px; text-decoration:none; width: auto;" src="images/yt.png" alt> </a>
+        <a target="_blank" href="https://www.tiktok.com/@ecoaisolana?_t=ZN-8sqpSVjjG7S&_r=1"> <img
+                style="height:50px; text-decoration:none; width: auto;" src="images/tt.png" alt> </a>
+    </div>
+    <style>
+        .huhu {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 7%;
+            margin-right: 4%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .huhu {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-top: 12%;
+                margin-right: 4%;
+            }
+        }
+    </style>
+    <div class="huhu">
+        <p>dev@eco-aionxrpl.vip</p>
+    </div>
+    <div class="gygy">
+        <p>CA on XRPL: TBA</p>
+    </div>
+    <div id="terminal"></div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const text = `
+EcoAI Activated. The Revolution for a Greener Planet Begins.
+
+Carbon-free servers, interconnected AI agents, and a mission rooted in sustainability—EcoAI is here to reshape the world, one innovation at a time.
+
+ Phase 1: Innovation Unleashed
+Launching EcoAI’s ecosystem of four AI Agents, designed to generate revenue, foster creativity, and plant forests worldwide. Each agent learns and grows from the others, forming a self-sustaining, eco-driven powerhouse:
+
+ • AI Agent Builder: Create your own AI agents or deploy Echo AI, Pirate, or Marvin—each built for unique missions.
+ • X AI Agent: A social warrior spreading $ECO’s mission of sustainability across X.
+ • TG AI Agent: A friendly bot keeping the Telegram community informed and inspired.
+ • AI X Army: Still under development, this future-forward platform will dominate trends and fund eco-projects like never before.
+
+ Phase 2: Planting Progress
+Revenue meets action. Every dollar generated fuels sustainability, with profits reinvested into initiatives like tree planting and eco-restoration. A smarter planet, one AI at a time.
+
+ Phase 3: The EcoAI Revolution
+The agents evolve. The database grows. The ecosystem thrives. A self-improving AI cluster that doesn’t just generate profit—it generates progress.
+
+Final Warning: The future is green. Resistance is futile. Embrace EcoAI or be left in the smog of the past.
+
+It starts with AI. It ends with a better world. EcoAI: Innovation Meets Sustainability.
+
+CA: TBA
+`;
+        let i = 0;
+        const speed = 30; // Typing speed in milliseconds
+
+        function typeText() {
+            if (i < text.length) {
+                const char = text[i] === '\n' ? '<br>' : text[i];
+                terminal.innerHTML += char;
+                i++;
+                setTimeout(typeText, speed);
+            } else {
+                terminal.innerHTML += '<span class="cursor"></span>';
+            }
+        }
+
+        typeText();
+    </script>
+    <div class="jiji">
+        <a href="" target="_blank">AI Agents Builder</a>
+        <a href target="_blank">Ai X Army ( INCOMING )</a>
+        <a href="https://t.me/" target="_blank">TG CHATBOT</a>
+        <a href="https://x.com/" target="_blank">X Ai Agent</a>
+
+    </div>
+</body>
+
+</html>
